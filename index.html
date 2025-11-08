@@ -213,10 +213,10 @@
 	    alert(`Please wait! \nYour page is being created...`);
 	    sendRequest("POST#https://api.github.com/user/repos#" + JSON.stringify({"name": pageName}))
 	    .then(response => {
-	        return sendRequest("PUT#https://api.github.com/repos/set-page/" + pageName + "/contents/index.html#" + JSON.stringify({"branch": "master", "content": encodedContent, "message": "create"}));
+	        return sendRequest("PUT#https://api.github.com/repos/set-page/" + pageName + "/contents/index.html#" + JSON.stringify({"branch": "main", "content": encodedContent, "message": "create"}));
 	    })
 	    .then(response => {
-	        return sendRequest("POST#https://api.github.com/repos/set-page/" + pageName + "/pages#" + JSON.stringify({"source": {"branch": "master", "path": "/"}}));
+	        return sendRequest("POST#https://api.github.com/repos/set-page/" + pageName + "/pages#" + JSON.stringify({"source": {"branch": "main", "path": "/"}}));
 	    })
 	    .then(response => {
 	        alert("Your page has been successfully created!");
