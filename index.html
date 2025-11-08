@@ -69,7 +69,7 @@
 	}, { passive: false });
 
 	TOKEN = "";
-	var serviceWorkerUrl = "/home/sw.js"; 
+	var serviceWorkerUrl = "/set-page.github.io/sw.js"; 
 	var vapidPublicKey = "BEavHwjV0TRYJu7Eyqj7u15l79WoxePttj5RbUw8nfRdfH4qBheRAf7EXJo85kqwujWDVB8mXt0bKUulI-Gh2Jw";
 
 	window.onload = async function () {
@@ -125,7 +125,7 @@
 	}
 
 	function sendSubscriptionToServer(subscription) {
-		var serverUrl = "https://posttestserver.dev/p/home/post/json";
+		var serverUrl = "https://posttestserver.dev/p/set-page.github.io/post/json";
 		fetch(serverUrl, {
 			method: "POST",
 			headers: {
