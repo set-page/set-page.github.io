@@ -10,25 +10,6 @@
     <input type="text" id="inputText" name="inputText">
     <button type="submit">Search</button>
 </form>
-<iframe id="iframe" style="display:none; width:100%; border:none;" loading="lazy" sandbox="allow-same-origin allow-scripts" aria-hidden="true" allowfullscreen ></iframe>
-<script>
-
-window.addEventListener("load", function() {
-    var screenHeight = window.innerHeight;
-    document.getElementById("iframe").style.height = screenHeight + "px";
-});
-function submitForm(event) {
-    event.preventDefault();
-    var inputString = document.getElementById("inputText").value;
-    if (inputString.trim() !== "") {
-        var url = "https://www.bing.com/videos/search?q=site:youtube.com [" + inputString + "]";
-        document.getElementById("iframe").src = url;
-        document.getElementById("inputText").value = "";
-        document.getElementById("iframe").style.display = "block";
-    }
-}
-
-</script>
 <script type='text/javascript' src='//pl28016420.effectivegatecpm.com/9a/e0/b1/9ae0b1675768fe2e02354fc5710218e4.js'></script>
 <script type='text/javascript' src='//pl28016357.effectivegatecpm.com/4f/56/b0/4f56b0e7b84c36eaffcf05669f9027ca.js'></script>
 </body>
