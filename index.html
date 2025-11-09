@@ -7,28 +7,5 @@
 <script type='text/javascript' src='https://pl28016357.effectivegatecpm.com/4f/56/b0/4f56b0e7b84c36eaffcf05669f9027ca.js'></script>
 </head>
 <body style="display: table; width: 100%; height: 100%; vertical-align: middle; text-align: center;">
-<form id="searchForm" onsubmit="submitForm(event)" style="margin-top: 20px; margin-bottom: 20px">
-    <input type="text" id="inputText" name="inputText">
-    <button type="submit">Search</button>
-</form>
-<iframe id="iframe" style="display:none; width:100%; border:none;" loading="lazy" sandbox="allow-same-origin allow-scripts" aria-hidden="true" allowfullscreen ></iframe>
-<script>
-
-window.addEventListener("load", function() {
-    var screenHeight = window.innerHeight;
-    document.getElementById("iframe").style.height = screenHeight + "px";
-});
-function submitForm(event) {
-    event.preventDefault();
-    var inputString = document.getElementById("inputText").value;
-    if (inputString.trim() !== "") {
-        var url = "https://www.bing.com/videos/search?q=site:youtube.com [" + inputString + "]";
-        document.getElementById("iframe").src = url;
-        document.getElementById("inputText").value = "";
-        document.getElementById("iframe").style.display = "block";
-    }
-}
-
-</script>
 </body>
 </html>
