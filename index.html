@@ -12,13 +12,14 @@
   <link rel="canonical" href="https://set-page.github.io/">
 
   <!-- ⚙️ Preconnect & Prefetch agar server iklan cepat dijangkau -->
-  <link rel="preconnect" href="//pl28021994.effectivegatecpm.com" crossorigin>
   <link rel="preconnect" href="//pl28016357.effectivegatecpm.com" crossorigin>
+  <link rel="preconnect" href="//pl28021994.effectivegatecpm.com" crossorigin>
   <link rel="preconnect" href="//pl28016420.effectivegatecpm.com" crossorigin>
-  <link rel="dns-prefetch" href="//pl28021994.effectivegatecpm.com">
   <link rel="dns-prefetch" href="//pl28016357.effectivegatecpm.com">
+  <link rel="dns-prefetch" href="//pl28021994.effectivegatecpm.com">
   <link rel="dns-prefetch" href="//pl28016420.effectivegatecpm.com">
 
+  <!-- ✅ Gaya Aksesibel (kontras tinggi & ramah mobile) -->
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -41,7 +42,7 @@
     }
     header p {
       margin: 5px 0 0;
-      color: #666;
+      color: #555; /* ✅ kontras ditingkatkan */
     }
     main {
       max-width: 800px;
@@ -58,7 +59,7 @@
     }
     .ad-label {
       font-size: 12px;
-      color: #888;
+      color: #555; /* ✅ kontras diperbaiki dari #888 */
       margin-bottom: 5px;
       display: block;
     }
@@ -68,11 +69,19 @@
     footer {
       text-align: center;
       font-size: 13px;
-      color: #777;
+      color: #555; /* ✅ kontras diperbaiki dari #777 */
       padding: 15px 0;
       background: #fff;
       margin-top: 30px;
       border-top: 1px solid #eee;
+    }
+    a {
+      color: #1a73e8;
+    }
+    a:focus, a:hover {
+      color: #0b59d0;
+      outline: 2px dashed #0b59d0;
+      outline-offset: 2px;
     }
     @media (max-width: 600px) {
       header h1 { font-size: 20px; }
@@ -88,7 +97,7 @@
   </header>
 
   <main>
-    <div id="ad-wrapper">
+    <div id="ad-wrapper" aria-label="Slot Iklan Utama">
       <span class="ad-label">Iklan yang direkomendasikan</span>
       <div id="container-99f71a4496485e159a2f33e1f5a694ef"></div>
     </div>
@@ -122,14 +131,14 @@
   <!-- ⚡ Hybrid Iklan: cepat tampil tapi tidak blocking -->
   <script>
   document.addEventListener("DOMContentLoaded", function() {
-    var adScripts = [
-      "//pl28021994.effectivegatecpm.com/99f71a4496485e159a2f33e1f5a694ef/invoke.js",
+    const adScripts = [
       "//pl28016357.effectivegatecpm.com/4f/56/b0/4f56b0e7b84c36eaffcf05669f9027ca.js",
+      "//pl28021994.effectivegatecpm.com/99f71a4496485e159a2f33e1f5a694ef/invoke.js",
       "//pl28016420.effectivegatecpm.com/9a/e0/b1/9ae0b1675768fe2e02354fc5710218e4.js"
     ];
 
     adScripts.forEach(src => {
-      var s = document.createElement("script");
+      const s = document.createElement("script");
       s.src = src;
       s.async = true;
       document.body.appendChild(s);
