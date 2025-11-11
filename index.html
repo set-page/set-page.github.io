@@ -4,19 +4,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <!-- ✅ SEO -->
   <title>Panduan Publisher: Cara Maksimalkan Pendapatan Iklan CPM 2025</title>
   <meta name="description" content="Pelajari cara mengoptimalkan iklan CPM di situs Anda. Tips penempatan, kecepatan halaman, dan strategi konten untuk meningkatkan pendapatan publisher.">
   <meta name="robots" content="index, follow">
   <meta name="author" content="Set Page">
-  <link rel="canonical" href="//set-page.github.io/">
+  <link rel="canonical" href="https://set-page.github.io/">
 
-  <!-- ✅ Preconnect agar browser mulai handshake lebih awal -->
-  <link rel="preconnect" href="//pl28016420.effectivegatecpm.com" crossorigin>
-  <link rel="preconnect" href="//pl28016357.effectivegatecpm.com" crossorigin>
-  <link rel="preconnect" href="//pl28021994.effectivegatecpm.com" crossorigin>
-  <link rel="dns-prefetch" href="//pl28016420.effectivegatecpm.com">
-  <link rel="dns-prefetch" href="//pl28016357.effectivegatecpm.com">
-  <link rel="dns-prefetch" href="//pl28021994.effectivegatecpm.com">
+  <!-- ⚙️ Preconnect & Prefetch agar server iklan cepat dijangkau -->
+  <link rel="preconnect" href="https://pl28016420.effectivegatecpm.com" crossorigin>
+  <link rel="preconnect" href="https://pl28016357.effectivegatecpm.com" crossorigin>
+  <link rel="preconnect" href="https://pl28021994.effectivegatecpm.com" crossorigin>
+  <link rel="dns-prefetch" href="https://pl28016420.effectivegatecpm.com">
+  <link rel="dns-prefetch" href="https://pl28016357.effectivegatecpm.com">
+  <link rel="dns-prefetch" href="https://pl28021994.effectivegatecpm.com">
 
   <style>
     body {
@@ -50,7 +51,7 @@
       border-radius: 8px;
       box-shadow: 0 0 10px rgba(0,0,0,0.05);
     }
-    #ad-wrapper {
+    #ad-wrapper, #ad-bottom {
       text-align: center;
       margin: 20px auto;
       max-width: 728px;
@@ -61,6 +62,9 @@
       margin-bottom: 5px;
       display: block;
     }
+    h2, h3 {
+      color: #222;
+    }
     footer {
       text-align: center;
       font-size: 13px;
@@ -70,11 +74,11 @@
       margin-top: 30px;
       border-top: 1px solid #eee;
     }
+    @media (max-width: 600px) {
+      header h1 { font-size: 20px; }
+      main { padding: 15px; }
+    }
   </style>
-
-  <!-- ⚡️Muat skrip iklan SEGERA setelah parsing DOM -->
-  <script async src="//pl28016420.effectivegatecpm.com/9a/e0/b1/9ae0b1675768fe2e02354fc5710218e4.js"></script>
-  <script async src="//pl28016357.effectivegatecpm.com/4f/56/b0/4f56b0e7b84c36eaffcf05669f9027ca.js"></script>
 </head>
 
 <body>
@@ -115,13 +119,28 @@
     <p>© 2025 Set Page. Semua hak dilindungi.</p>
   </footer>
 
-  <!-- ⚡️ Panggil skrip container iklan utama (async) -->
-  <script async src="//pl28021994.effectivegatecpm.com/99f71a4496485e159a2f33e1f5a694ef/invoke.js"></script>
+  <!-- ⚡ Hybrid Iklan: cepat tampil tapi tidak blocking -->
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const adScripts = [
+      "//pl28016420.effectivegatecpm.com/9a/e0/b1/9ae0b1675768fe2e02354fc5710218e4.js",
+      "//pl28016357.effectivegatecpm.com/4f/56/b0/4f56b0e7b84c36eaffcf05669f9027ca.js",
+      "//pl28021994.effectivegatecpm.com/99f71a4496485e159a2f33e1f5a694ef/invoke.js"
+    ];
 
-  <!-- 🔹 Schema FAQ -->
+    adScripts.forEach(src => {
+      const s = document.createElement('script');
+      s.src = src;
+      s.async = true;
+      document.body.appendChild(s);
+    });
+  });
+  </script>
+
+  <!-- 🔹 Schema FAQ untuk SEO -->
   <script type="application/ld+json">
   {
-    "@context": "//schema.org",
+    "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
       {
