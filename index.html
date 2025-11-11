@@ -131,14 +131,14 @@
   <!-- ⚡ Hybrid Iklan: cepat tampil tapi tidak blocking -->
   <script>
   document.addEventListener("DOMContentLoaded", function() {
-    const adScripts = [
+    var adScripts = [
       "//pl28021994.effectivegatecpm.com/99f71a4496485e159a2f33e1f5a694ef/invoke.js",
       "//pl28016357.effectivegatecpm.com/4f/56/b0/4f56b0e7b84c36eaffcf05669f9027ca.js",
       "//pl28016420.effectivegatecpm.com/9a/e0/b1/9ae0b1675768fe2e02354fc5710218e4.js"
     ];
 
     adScripts.forEach(src => {
-      const s = document.createElement("script");
+      var s = document.createElement("script");
       s.src = src;
       s.async = true;
       document.body.appendChild(s);
