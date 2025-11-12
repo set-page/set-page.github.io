@@ -14,8 +14,10 @@
   <!-- ✅ Resource Hints -->
   <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
   <link rel="preconnect" href="//pl28021994.effectivegatecpm.com" crossorigin>
+  <link rel="preconnect" href="//pl28016420.effectivegatecpm.com" crossorigin>
   <link rel="preconnect" href="//fpyf8.com" crossorigin>
   <link rel="dns-prefetch" href="//pl28021994.effectivegatecpm.com">
+  <link rel="dns-prefetch" href="//pl28016420.effectivegatecpm.com">
   <link rel="dns-prefetch" href="//fpyf8.com">
 
   <!-- ✅ Cache control -->
@@ -24,14 +26,21 @@
   <!-- ✅ Google AdSense -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3509208042400388" crossorigin="anonymous"></script>
 
-  <!-- ✅ Gaya aksesibel & ringan -->
+  <!-- ✅ Gaya ringan & responsif -->
   <style>
+    :root {
+      color-scheme: light dark;
+      --bg: #f9f9f9;
+      --text: #333;
+      --accent: #1a73e8;
+      --shadow: rgba(0,0,0,0.05);
+    }
     body {
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      background: #f9f9f9;
-      color: #333;
+      background: var(--bg);
+      color: var(--text);
       line-height: 1.6;
       font-size: 16px;
     }
@@ -41,19 +50,29 @@
       padding: 25px 10px;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
-    header h1 { margin: 0; font-size: 24px; color: #222; }
-    header p { margin: 5px 0 0; color: #555; }
+    header h1 {
+      margin: 0;
+      font-size: 24px;
+      color: #222;
+    }
+    header p {
+      margin: 5px 0 0;
+      color: #555;
+    }
     main {
       max-width: 800px;
       margin: 30px auto;
       background: #fff;
       padding: 20px;
       border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+      box-shadow: 0 0 10px var(--shadow);
     }
-    #ad-wrapper, #ad-bottom {
+    h2, h3 {
+      color: #222;
+    }
+    .ad-slot {
       text-align: center;
-      margin: 20px auto;
+      margin: 25px auto;
       max-width: 728px;
     }
     .ad-label {
@@ -62,7 +81,6 @@
       margin-bottom: 5px;
       display: block;
     }
-    h2, h3 { color: #222; }
     footer {
       text-align: center;
       font-size: 13px;
@@ -72,8 +90,15 @@
       margin-top: 30px;
       border-top: 1px solid #eee;
     }
-    a { color: #1a73e8; text-decoration: none; }
-    a:hover, a:focus { color: #0b59d0; outline: 2px dashed #0b59d0; outline-offset: 2px; }
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    a:hover, a:focus {
+      color: #0b59d0;
+      outline: 2px dashed #0b59d0;
+      outline-offset: 2px;
+    }
     @media (max-width: 600px) {
       header h1 { font-size: 20px; }
       main { padding: 15px; }
@@ -91,35 +116,41 @@
     <h2>Fokus Utama: Kecepatan Muat Iklan</h2>
     <p>Kecepatan muat berpengaruh langsung pada viewability dan nilai CPM. Semakin cepat iklan tampil tanpa mengganggu pengguna, semakin tinggi potensi pendapatan Anda.</p>
 
+    <div class="ad-slot" id="ad-top" aria-label="Slot Iklan Atas">
+      <span class="ad-label">Iklan Direkomendasikan</span>
+      <div id="container-99f71a4496485e159a2f33e1f5a694ef"></div>
+    </div>
+
     <h3>1. Prioritaskan Konten Sebelum Iklan</h3>
     <p>Muat iklan setelah elemen utama muncul agar pengunjung tidak terganggu. Gunakan <code>async</code> atau <code>defer</code> agar JavaScript iklan tidak memblokir render.</p>
 
     <h3>2. Optimalkan Popunder</h3>
     <p>Popunder dimuat secara terpisah dan hanya aktif setelah interaksi pengguna (klik atau scroll). Hal ini meningkatkan kecepatan awal sekaligus menghindari penalti dari browser modern.</p>
 
+    <div class="ad-slot" id="ad-mid" aria-label="Slot Iklan Tengah">
+      <span class="ad-label">Iklan Pilihan</span>
+      <div id="container-engagement"></div>
+    </div>
+
     <h3>3. Cache dan CDN</h3>
     <p>Gunakan caching dan CDN agar file JavaScript serta gambar di-load dari lokasi terdekat pengguna, mempercepat TTFB dan menurunkan waktu muat total.</p>
   </main>
-
-  <div id="ad-wrapper" aria-label="Slot Iklan Utama">
-    <span class="ad-label">Iklan Direkomendasikan</span>
-    <div id="container-99f71a4496485e159a2f33e1f5a694ef"></div>
-  </div>
 
   <footer>
     <p>© 2025 Set Page. Semua hak dilindungi.</p>
   </footer>
 
-  <!-- ✅ Optimized Iklan Loader -->
+  <!-- ✅ Optimized Asynchronous Iklan Loader -->
   <script>
   document.addEventListener("DOMContentLoaded", () => {
-    // Fungsi untuk menambahkan script eksternal
     const addScript = (src, defer = true, priority = "auto") => {
       const s = document.createElement("script");
       s.src = src;
       s.async = true;
       s.defer = defer;
       s.fetchPriority = priority;
+      s.referrerPolicy = "no-referrer";
+      s.crossOrigin = "anonymous";
       s.onerror = () => console.warn("Gagal memuat:", src);
       document.body.appendChild(s);
     };
@@ -130,6 +161,17 @@
       "//pl28016357.effectivegatecpm.com/4f/56/b0/4f56b0e7b84c36eaffcf05669f9027ca.js"
     ];
     adScripts.forEach(src => addScript(src, true, "high"));
+
+    // 🔹 Iklan tambahan untuk meningkatkan engagement
+    const loadEngagementAd = () => {
+      if (window.engageAdLoaded) return;
+      window.engageAdLoaded = true;
+      addScript("//pl28016420.effectivegatecpm.com/9a/e0/b1/9ae0b1675768fe2e02354fc5710218e4.js", true, "low");
+      document.removeEventListener("click", loadEngagementAd);
+      document.removeEventListener("scroll", loadEngagementAd);
+    };
+    document.addEventListener("click", loadEngagementAd);
+    document.addEventListener("scroll", loadEngagementAd);
 
     // 🔹 Popunder — hanya aktif setelah interaksi user
     const initPopunder = () => {
@@ -143,7 +185,10 @@
     document.addEventListener("scroll", initPopunder);
 
     // 🔹 Timeout cadangan jika user tidak berinteraksi
-    setTimeout(initPopunder, 4000);
+    setTimeout(() => {
+      loadEngagementAd();
+      initPopunder();
+    }, 4000);
   });
   </script>
 
