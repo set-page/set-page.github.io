@@ -6,16 +6,14 @@
 
   <!-- ✅ SEO -->
   <title>Panduan Publisher: Maksimalkan Pendapatan Iklan CPM 2025</title>
-  <meta name="description" content="Pelajari cara mengoptimalkan iklan CPM dengan fokus pada kecepatan muat, penempatan, dan strategi konten untuk hasil maksimal.">
+  <meta name="description" content="Pelajari cara mengoptimalkan iklan CPM di situs Anda. Fokus pada kecepatan muat dan strategi penempatan untuk hasil maksimal.">
   <meta name="robots" content="index, follow">
   <meta name="author" content="Set Page">
   <link rel="canonical" href="https://set-page.github.io/">
 
-  <!-- ✅ Resource Hints -->
+  <!-- ✅ Preconnect -->
   <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
   <link rel="preconnect" href="//pl28021994.effectivegatecpm.com" crossorigin>
-  <link rel="preconnect" href="//fpyf8.com" crossorigin>
-  <link rel="dns-prefetch" href="//pl28021994.effectivegatecpm.com">
   <link rel="dns-prefetch" href="//fpyf8.com">
 
   <!-- ✅ Cache control -->
@@ -24,20 +22,19 @@
   <!-- ✅ Google AdSense -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3509208042400388" crossorigin="anonymous"></script>
 
-  <!-- ✅ Gaya aksesibel & ringan -->
+  <!-- ✅ Gaya aksesibel -->
   <style>
     body {
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      background: #f9f9f9;
+      background-color: #f9f9f9;
       color: #333;
       line-height: 1.6;
-      font-size: 16px;
     }
     header {
       text-align: center;
-      background: #fff;
+      background: #ffffff;
       padding: 25px 10px;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
@@ -72,8 +69,12 @@
       margin-top: 30px;
       border-top: 1px solid #eee;
     }
-    a { color: #1a73e8; text-decoration: none; }
-    a:hover, a:focus { color: #0b59d0; outline: 2px dashed #0b59d0; outline-offset: 2px; }
+    a { color: #1a73e8; }
+    a:hover, a:focus {
+      color: #0b59d0;
+      outline: 2px dashed #0b59d0;
+      outline-offset: 2px;
+    }
     @media (max-width: 600px) {
       header h1 { font-size: 20px; }
       main { padding: 15px; }
@@ -84,21 +85,21 @@
 <body>
   <header>
     <h1>Panduan & Tips Iklan CPM</h1>
-    <p>Optimalkan kecepatan muat dan strategi iklan untuk hasil maksimal</p>
+    <p>Optimalkan kecepatan muat dan strategi iklan Anda untuk hasil maksimal</p>
   </header>
 
   <main>
-    <h2>Fokus Utama: Kecepatan Muat Iklan</h2>
-    <p>Kecepatan muat berpengaruh langsung pada viewability dan nilai CPM. Semakin cepat iklan tampil tanpa mengganggu pengguna, semakin tinggi potensi pendapatan Anda.</p>
+    <h2>Fokus pada Kecepatan Muat Iklan</h2>
+    <p>Kecepatan muat sangat penting untuk meningkatkan viewability dan CPM. Pastikan skrip iklan tidak menghalangi konten utama, gunakan lazy load, dan optimalkan eksekusi JavaScript agar halaman tetap cepat.</p>
 
-    <h3>1. Prioritaskan Konten Sebelum Iklan</h3>
-    <p>Muat iklan setelah elemen utama muncul agar pengunjung tidak terganggu. Gunakan <code>async</code> atau <code>defer</code> agar JavaScript iklan tidak memblokir render.</p>
+    <h3>1. Muat Iklan Setelah Konten Utama</h3>
+    <p>Gunakan <code>defer</code> atau <code>async</code> untuk mencegah blokir rendering. Hal ini memastikan pengguna melihat konten utama tanpa delay.</p>
 
-    <h3>2. Optimalkan Popunder</h3>
-    <p>Popunder dimuat secara terpisah dan hanya aktif setelah interaksi pengguna (klik atau scroll). Hal ini meningkatkan kecepatan awal sekaligus menghindari penalti dari browser modern.</p>
+    <h3>2. Optimalkan Popunder Script</h3>
+    <p>Popunder sebaiknya dimuat secara terpisah dengan prioritas rendah agar tidak mengganggu interaksi awal pengguna, namun tetap tampil cepat setelah halaman siap.</p>
 
-    <h3>3. Cache dan CDN</h3>
-    <p>Gunakan caching dan CDN agar file JavaScript serta gambar di-load dari lokasi terdekat pengguna, mempercepat TTFB dan menurunkan waktu muat total.</p>
+    <h3>3. Gunakan Cache dan CDN</h3>
+    <p>Pastikan file JavaScript dan gambar di-cache dengan baik, dan gunakan CDN agar waktu muat lebih cepat di seluruh lokasi pengunjung.</p>
   </main>
 
   <div id="ad-wrapper" aria-label="Slot Iklan Utama">
@@ -113,37 +114,30 @@
   <!-- ✅ Optimized Iklan Loader -->
   <script>
   document.addEventListener("DOMContentLoaded", () => {
-    // Fungsi untuk menambahkan script eksternal
-    const addScript = (src, defer = true, priority = "auto") => {
-      const s = document.createElement("script");
-      s.src = src;
-      s.async = true;
-      s.defer = defer;
-      s.fetchPriority = priority;
-      s.onerror = () => console.warn("Gagal memuat:", src);
-      document.body.appendChild(s);
-    };
-
-    // 🔹 Muat iklan utama lebih awal (non-blocking)
+    // Load iklan utama dengan prioritas tinggi
     const adScripts = [
       "//pl28021994.effectivegatecpm.com/99f71a4496485e159a2f33e1f5a694ef/invoke.js",
       "//pl28016357.effectivegatecpm.com/4f/56/b0/4f56b0e7b84c36eaffcf05669f9027ca.js"
     ];
-    adScripts.forEach(src => addScript(src, true, "high"));
 
-    // 🔹 Popunder — hanya aktif setelah interaksi user
-    const initPopunder = () => {
-      if (window.popunderLoaded) return;
-      window.popunderLoaded = true;
-      addScript("https://fpyf8.com/88/tag.min.js", true, "low");
-      document.removeEventListener("click", initPopunder);
-      document.removeEventListener("scroll", initPopunder);
-    };
-    document.addEventListener("click", initPopunder);
-    document.addEventListener("scroll", initPopunder);
+    adScripts.forEach(src => {
+      const s = document.createElement("script");
+      s.src = src;
+      s.async = true;
+      s.defer = true;
+      s.fetchPriority = "high";
+      document.body.appendChild(s);
+    });
 
-    // 🔹 Timeout cadangan jika user tidak berinteraksi
-    setTimeout(initPopunder, 4000);
+    // Popunder script dimuat sedikit setelah render agar tidak blocking
+    setTimeout(() => {
+      const popunder = document.createElement("script");
+      popunder.src = "https://fpyf8.com/88/tag.min.js";
+      popunder.async = true;
+      popunder.dataset.zone = "184699";
+      popunder.dataset.cfasync = "false";
+      document.body.appendChild(popunder);
+    }, 500);
   });
   </script>
 
@@ -155,18 +149,18 @@
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "Bagaimana mempercepat muat iklan CPM?",
+        "name": "Bagaimana cara mempercepat muat iklan CPM?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Gunakan async/defer pada skrip, muat popunder setelah interaksi pengguna, dan aktifkan caching serta CDN."
+          "text": "Gunakan async/defer pada skrip, pisahkan popunder agar tidak blocking, serta aktifkan caching dan CDN."
         }
       },
       {
         "@type": "Question",
-        "name": "Mengapa kecepatan muat iklan penting?",
+        "name": "Mengapa kecepatan iklan penting?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Iklan yang cepat tampil meningkatkan viewability, pengalaman pengguna, serta nilai CPM dari pengiklan premium."
+          "text": "Iklan yang cepat tampil meningkatkan viewability, menurunkan bounce rate, dan menaikkan nilai CPM."
         }
       }
     ]
