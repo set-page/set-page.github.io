@@ -11,10 +11,10 @@
   <meta name="author" content="Set Page">
   <link rel="canonical" href="https://set-page.github.io/">
 
-  <!-- ⚙️ Preconnect (optimal: hanya domain utama) -->
-  <link rel="preconnect" href="//pl28021994.effectivegatecpm.com" crossorigin>
-  <link rel="dns-prefetch" href="//pl28021994.effectivegatecpm.com">
-  <link rel="dns-prefetch" href="//fpyf8.com">
+  <!-- ✅ Performance: preconnect hanya domain penting -->
+  <link rel="preconnect" href="https://pl28021994.effectivegatecpm.com" crossorigin>
+  <link rel="dns-prefetch" href="https://pl28021994.effectivegatecpm.com">
+  <link rel="dns-prefetch" href="https://fpyf8.com">
 
   <!-- ✅ Cache control untuk file lokal -->
   <meta http-equiv="Cache-Control" content="public, max-age=31536000, immutable">
@@ -91,7 +91,6 @@
 </head>
 
 <body>
-
   <header>
     <h1>Panduan & Tips Iklan CPM</h1>
     <p>Optimalkan penempatan dan strategi iklan Anda untuk hasil maksimal</p>
@@ -127,23 +126,22 @@
   <!-- 🔹 Slot Iklan Utama -->
   <div id="ad-wrapper" aria-label="Slot Iklan Utama">
     <span class="ad-label">Iklan yang direkomendasikan</span>
-    <div id="container-99f71a4496485e159a2f33e1f5a694ef"></div>
+    <div id="container-99f71a4496485e159a2f33e1f5a694ef" loading="lazy" fetchpriority="low"></div>
   </div>
 
-  <!-- ⚡ Hybrid Iklan: cepat tampil tapi tidak blocking -->
+  <!-- ⚡ Optimasi Loading Script Iklan -->
   <script>
-  document.addEventListener("DOMContentLoaded", function() {
-    // Tunggu hingga konten utama selesai dirender
+  window.addEventListener("load", function() {
     if ('requestIdleCallback' in window) {
-      requestIdleCallback(loadAds);
+      requestIdleCallback(loadAds, { timeout: 3000 });
     } else {
-      setTimeout(loadAds, 1500);
+      setTimeout(loadAds, 2000);
     }
 
     function loadAds() {
       const adScripts = [
-        "//pl28021994.effectivegatecpm.com/99f71a4496485e159a2f33e1f5a694ef/invoke.js",
-        "//pl28016357.effectivegatecpm.com/4f/56/b0/4f56b0e7b84c36eaffcf05669f9027ca.js"
+        "https://pl28021994.effectivegatecpm.com/99f71a4496485e159a2f33e1f5a694ef/invoke.js",
+        "https://pl28016357.effectivegatecpm.com/4f/56/b0/4f56b0e7b84c36eaffcf05669f9027ca.js"
       ];
 
       adScripts.forEach(src => {
@@ -151,15 +149,16 @@
         s.src = src;
         s.async = true;
         s.defer = true;
+        s.fetchPriority = "low";
         document.body.appendChild(s);
       });
 
-      // Muat juga tag iklan utama
       const tag = document.createElement("script");
       tag.src = "https://fpyf8.com/88/tag.min.js";
       tag.async = true;
       tag.dataset.zone = "184699";
       tag.dataset.cfasync = "false";
+      tag.fetchPriority = "low";
       document.body.appendChild(tag);
     }
   });
@@ -190,6 +189,5 @@
     ]
   }
   </script>
-
 </body>
 </html>
