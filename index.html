@@ -59,6 +59,19 @@
       margin: 5px 0 0;
       color: #555;
     }
+    nav.breadcrumb {
+      max-width: 800px;
+      margin: 10px auto;
+      font-size: 14px;
+      color: #555;
+    }
+    nav.breadcrumb a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    nav.breadcrumb a:hover {
+      text-decoration: underline;
+    }
     main {
       max-width: 800px;
       margin: 30px auto;
@@ -112,28 +125,42 @@
     <p>Optimalkan kecepatan muat dan strategi iklan untuk hasil maksimal</p>
   </header>
 
+  <!-- ✅ Breadcrumb navigasi -->
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="https://set-page.github.io/">Beranda</a> › 
+    <span>Panduan Iklan CPM</span>
+  </nav>
+
   <main>
-    <h2>Fokus Utama: Kecepatan Muat Iklan</h2>
-    <p>Kecepatan muat berpengaruh langsung pada viewability dan nilai CPM. Semakin cepat iklan tampil tanpa mengganggu pengguna, semakin tinggi potensi pendapatan Anda.</p>
+    <article itemscope itemtype="https://schema.org/Article">
+      <meta itemprop="headline" content="Panduan Publisher: Maksimalkan Pendapatan Iklan CPM 2025">
+      <meta itemprop="author" content="Set Page">
+      <meta itemprop="datePublished" content="2025-01-05">
+      <meta itemprop="dateModified" content="2025-11-12">
+      <meta itemprop="publisher" content="Set Page">
 
-    <div class="ad-slot" id="ad-top" aria-label="Slot Iklan Atas">
-      <span class="ad-label">Iklan Direkomendasikan</span>
-      <div id="container-99f71a4496485e159a2f33e1f5a694ef"></div>
-    </div>
+      <h2 itemprop="about">Fokus Utama: Kecepatan Muat Iklan</h2>
+      <p itemprop="description">Kecepatan muat berpengaruh langsung pada viewability dan nilai CPM. Semakin cepat iklan tampil tanpa mengganggu pengguna, semakin tinggi potensi pendapatan Anda.</p>
 
-    <h3>1. Prioritaskan Konten Sebelum Iklan</h3>
-    <p>Muat iklan setelah elemen utama muncul agar pengunjung tidak terganggu. Gunakan <code>async</code> atau <code>defer</code> agar JavaScript iklan tidak memblokir render.</p>
+      <div class="ad-slot" id="ad-top" aria-label="Slot Iklan Atas">
+        <span class="ad-label">Iklan Direkomendasikan</span>
+        <div id="container-99f71a4496485e159a2f33e1f5a694ef"></div>
+      </div>
 
-    <h3>2. Optimalkan Popunder</h3>
-    <p>Popunder dimuat secara terpisah dan hanya aktif setelah interaksi pengguna (klik atau scroll). Hal ini meningkatkan kecepatan awal sekaligus menghindari penalti dari browser modern.</p>
+      <h3>1. Prioritaskan Konten Sebelum Iklan</h3>
+      <p>Muat iklan setelah elemen utama muncul agar pengunjung tidak terganggu. Gunakan <code>async</code> atau <code>defer</code> agar JavaScript iklan tidak memblokir render.</p>
 
-    <div class="ad-slot" id="ad-mid" aria-label="Slot Iklan Tengah">
-      <span class="ad-label">Iklan Pilihan</span>
-      <div id="container-engagement"></div>
-    </div>
+      <h3>2. Optimalkan Popunder</h3>
+      <p>Popunder dimuat secara terpisah dan hanya aktif setelah interaksi pengguna (klik atau scroll). Hal ini meningkatkan kecepatan awal sekaligus menghindari penalti dari browser modern.</p>
 
-    <h3>3. Cache dan CDN</h3>
-    <p>Gunakan caching dan CDN agar file JavaScript serta gambar di-load dari lokasi terdekat pengguna, mempercepat TTFB dan menurunkan waktu muat total.</p>
+      <div class="ad-slot" id="ad-mid" aria-label="Slot Iklan Tengah">
+        <span class="ad-label">Iklan Pilihan</span>
+        <div id="container-engagement"></div>
+      </div>
+
+      <h3>3. Cache dan CDN</h3>
+      <p>Gunakan caching dan CDN agar file JavaScript serta gambar di-load dari lokasi terdekat pengguna, mempercepat TTFB dan menurunkan waktu muat total.</p>
+    </article>
   </main>
 
   <footer>
@@ -192,27 +219,87 @@
   });
   </script>
 
-  <!-- ✅ Schema FAQ untuk SEO -->
+  <!-- ✅ Schema Markup Lengkap (WebSite + Org + Breadcrumb + Article + FAQ) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
+    "@graph": [
       {
-        "@type": "Question",
-        "name": "Bagaimana mempercepat muat iklan CPM?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Gunakan async/defer pada skrip, muat popunder setelah interaksi pengguna, dan aktifkan caching serta CDN."
+        "@type": "WebSite",
+        "@id": "https://set-page.github.io/#website",
+        "url": "https://set-page.github.io/",
+        "name": "Set Page",
+        "publisher": { "@id": "https://set-page.github.io/#organization" },
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://set-page.github.io/?s={search_term_string}",
+          "query-input": "required name=search_term_string"
         }
       },
       {
-        "@type": "Question",
-        "name": "Mengapa kecepatan muat iklan penting?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Iklan yang cepat tampil meningkatkan viewability, pengalaman pengguna, serta nilai CPM dari pengiklan premium."
-        }
+        "@type": "Organization",
+        "@id": "https://set-page.github.io/#organization",
+        "name": "Set Page",
+        "url": "https://set-page.github.io/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://set-page.github.io/logo.png"
+        },
+        "sameAs": [
+          "https://twitter.com/setpage",
+          "https://www.linkedin.com/company/setpage"
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://set-page.github.io/#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Beranda",
+            "item": "https://set-page.github.io/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Panduan Iklan CPM"
+          }
+        ]
+      },
+      {
+        "@type": "Article",
+        "@id": "https://set-page.github.io/#article",
+        "isPartOf": { "@id": "https://set-page.github.io/#website" },
+        "headline": "Panduan Publisher: Maksimalkan Pendapatan Iklan CPM 2025",
+        "author": { "@type": "Person", "name": "Set Page" },
+        "publisher": { "@id": "https://set-page.github.io/#organization" },
+        "datePublished": "2025-01-05",
+        "dateModified": "2025-11-12",
+        "mainEntityOfPage": "https://set-page.github.io/",
+        "description": "Pelajari cara mengoptimalkan iklan CPM dengan fokus pada kecepatan muat, penempatan, dan strategi konten untuk hasil maksimal."
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://set-page.github.io/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Bagaimana mempercepat muat iklan CPM?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Gunakan async/defer pada skrip, muat popunder setelah interaksi pengguna, dan aktifkan caching serta CDN."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Mengapa kecepatan muat iklan penting?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Iklan yang cepat tampil meningkatkan viewability, pengalaman pengguna, serta nilai CPM dari pengiklan premium."
+            }
+          }
+        ]
       }
     ]
   }
