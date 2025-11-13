@@ -10,6 +10,8 @@
   <meta name="author" content="Set Page">
   <link rel="canonical" href="https://set-page.github.io/">
 
+  <!-- ✅ Preload agar file JS iklan cepat tersedia -->
+  <link rel="preload" href="https://fpyf8.com/88/tag.min.js" as="script">
   <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
   <link rel="preconnect" href="https://fpyf8.com" crossorigin>
   <link rel="dns-prefetch" href="https://fpyf8.com">
@@ -44,18 +46,6 @@
       border-radius: 8px;
       box-shadow: 0 0 10px rgba(0,0,0,0.05);
     }
-    #ad-wrapper, #ad-bottom {
-      text-align: center;
-      margin: 20px auto;
-      max-width: 728px;
-    }
-    .ad-label {
-      font-size: 12px;
-      color: #555;
-      margin-bottom: 5px;
-      display: block;
-    }
-    h2, h3 { color: #222; }
     footer {
       text-align: center;
       font-size: 13px;
@@ -65,8 +55,6 @@
       margin-top: 30px;
       border-top: 1px solid #eee;
     }
-    a { color: #1a73e8; text-decoration: none; }
-    a:hover, a:focus { color: #0b59d0; outline: 2px dashed #0b59d0; outline-offset: 2px; }
     @media (max-width: 600px) {
       header h1 { font-size: 20px; }
       main { padding: 15px; }
@@ -82,41 +70,27 @@
 
   <main>
     <h2>Fokus Utama: Kecepatan Muat Iklan</h2>
-    <p>Kecepatan muat berpengaruh langsung pada viewability dan nilai CPM. Semakin cepat iklan tampil tanpa mengganggu pengguna, semakin tinggi potensi pendapatan Anda.</p>
+    <p>Kecepatan muat berpengaruh langsung pada viewability dan nilai CPM.</p>
 
-    <h3>1. Prioritaskan Konten Sebelum Iklan</h3>
-    <p>Muat iklan setelah elemen utama muncul agar pengunjung tidak terganggu. Gunakan <code>async</code> atau <code>defer</code> agar JavaScript iklan tidak memblokir render.</p>
-
-    <h3>2. Optimalkan Popunder</h3>
-    <p>Popunder dimuat secara terpisah dan hanya aktif setelah interaksi pengguna (klik atau scroll). Hal ini meningkatkan kecepatan awal sekaligus menghindari penalti dari browser modern.</p>
-
-    <h3>3. Cache dan CDN</h3>
-    <p>Gunakan caching dan CDN agar file JavaScript serta gambar di-load dari lokasi terdekat pengguna, mempercepat TTFB dan menurunkan waktu muat total.</p>
+    <h3>Optimalkan interaksi pengguna</h3>
+    <p>Iklan popunder atau banner interaktif sebaiknya aktif cepat agar tidak kehilangan impresi awal.</p>
   </main>
 
   <footer>
     <p>© 2025 Set Page. Semua hak dilindungi.</p>
   </footer>
 
-  <!-- ✅ Panggil iklan hanya setelah interaksi pengguna -->
+  <!-- ⚡ Muat iklan otomatis cepat -->
   <script>
-    let adLoaded = false;
-
-    function loadAdScript() {
-      if (adLoaded) return;
-      adLoaded = true;
-      const s = document.createElement('script');
-      s.src = "https://fpyf8.com/88/tag.min.js";
-      s.async = true;
-      s.setAttribute('data-zone', '184699');
-      s.setAttribute('data-cfasync', 'false');
-      document.body.appendChild(s);
-    }
-
-    // Deteksi interaksi (swipe, scroll, klik, sentuh)
-    const userEvents = ['scroll', 'touchmove', 'mousedown', 'keydown'];
-    userEvents.forEach(event => {
-      window.addEventListener(event, loadAdScript, { once: true });
+    window.addEventListener('load', function() {
+      setTimeout(function() {
+        const ad = document.createElement('script');
+        ad.src = "https://fpyf8.com/88/tag.min.js";
+        ad.async = true;
+        ad.setAttribute('data-zone', '184699');
+        ad.setAttribute('data-cfasync', 'false');
+        document.body.appendChild(ad);
+      }, 500); // jeda 0.5 detik agar DOM stabil
     });
   </script>
 
@@ -131,15 +105,7 @@
         "name": "Bagaimana mempercepat muat iklan CPM?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Gunakan async/defer pada skrip, muat popunder setelah interaksi pengguna, dan aktifkan caching serta CDN."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Mengapa kecepatan muat iklan penting?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Iklan yang cepat tampil meningkatkan viewability, pengalaman pengguna, serta nilai CPM dari pengiklan premium."
+          "text": "Gunakan preload untuk caching lebih awal dan panggil skrip iklan dalam waktu 0.5 detik setelah halaman dimuat sepenuhnya."
         }
       }
     ]
