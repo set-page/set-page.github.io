@@ -13,7 +13,7 @@
 
   <!-- ✅ Resource Hints -->
   <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
-  <link rel="preconnect" href="//fpyf8.com" crossorigin>
+  <link rel="preconnect" href="https://fpyf8.com" crossorigin>
   <link rel="dns-prefetch" href="//fpyf8.com">
 
   <!-- ✅ Cache control -->
@@ -39,8 +39,15 @@
       padding: 25px 10px;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
-    header h1 { margin: 0; font-size: 24px; color: #222; }
-    header p { margin: 5px 0 0; color: #555; }
+    header h1 {
+      margin: 0;
+      font-size: 24px;
+      color: #222;
+    }
+    header p {
+      margin: 5px 0 0;
+      color: #555;
+    }
     main {
       max-width: 800px;
       margin: 30px auto;
@@ -49,7 +56,7 @@
       border-radius: 8px;
       box-shadow: 0 0 10px rgba(0,0,0,0.05);
     }
-    #ad-wrapper, #ad-bottom {
+    .ad-wrapper, .ad-bottom {
       text-align: center;
       margin: 20px auto;
       max-width: 728px;
@@ -70,8 +77,15 @@
       margin-top: 30px;
       border-top: 1px solid #eee;
     }
-    a { color: #1a73e8; text-decoration: none; }
-    a:hover, a:focus { color: #0b59d0; outline: 2px dashed #0b59d0; outline-offset: 2px; }
+    a {
+      color: #1a73e8;
+      text-decoration: none;
+    }
+    a:hover, a:focus {
+      color: #0b59d0;
+      outline: 2px dashed #0b59d0;
+      outline-offset: 2px;
+    }
     @media (max-width: 600px) {
       header h1 { font-size: 20px; }
       main { padding: 15px; }
@@ -86,39 +100,39 @@
   </header>
 
   <main>
-    <h2>Fokus Utama: Kecepatan Muat Iklan</h2>
-    <p>Kecepatan muat berpengaruh langsung pada viewability dan nilai CPM. Semakin cepat iklan tampil tanpa mengganggu pengguna, semakin tinggi potensi pendapatan Anda.</p>
+    <article>
+      <h2>Fokus Utama: Kecepatan Muat Iklan</h2>
+      <p>Kecepatan muat berpengaruh langsung pada viewability dan nilai CPM. Semakin cepat iklan tampil tanpa mengganggu pengguna, semakin tinggi potensi pendapatan Anda.</p>
 
-    <h3>1. Prioritaskan Konten Sebelum Iklan</h3>
-    <p>Muat iklan setelah elemen utama muncul agar pengunjung tidak terganggu. Gunakan <code>async</code> atau <code>defer</code> agar JavaScript iklan tidak memblokir render.</p>
+      <h3>1. Prioritaskan Konten Sebelum Iklan</h3>
+      <p>Muat iklan setelah elemen utama muncul agar pengunjung tidak terganggu. Gunakan <code>async</code> atau <code>defer</code> agar JavaScript iklan tidak memblokir render.</p>
 
-    <h3>2. Optimalkan Popunder</h3>
-    <p>Popunder dimuat secara terpisah dan hanya aktif setelah interaksi pengguna (klik atau scroll). Hal ini meningkatkan kecepatan awal sekaligus menghindari penalti dari browser modern.</p>
+      <h3>2. Optimalkan Popunder</h3>
+      <p>Popunder dimuat secara terpisah dan hanya aktif setelah interaksi pengguna (klik atau scroll). Hal ini meningkatkan kecepatan awal sekaligus menghindari penalti dari browser modern.</p>
 
-    <h3>3. Cache dan CDN</h3>
-    <p>Gunakan caching dan CDN agar file JavaScript serta gambar di-load dari lokasi terdekat pengguna, mempercepat TTFB dan menurunkan waktu muat total.</p>
+      <h3>3. Cache dan CDN</h3>
+      <p>Gunakan caching dan CDN agar file JavaScript serta gambar di-load dari lokasi terdekat pengguna, mempercepat TTFB dan menurunkan waktu muat total.</p>
+    </article>
   </main>
 
   <footer>
     <p>© 2025 Set Page. Semua hak dilindungi.</p>
   </footer>
 
-  <!-- ✅ Optimized Iklan Loader -->
+  <!-- ✅ Optimized Popunder Loader -->
   <script>
   document.addEventListener("DOMContentLoaded", () => {
-    // Fungsi untuk menambahkan script eksternal
     const addScript = (src, defer = true, priority = "auto") => {
       const s = document.createElement("script");
       s.src = src;
       s.async = true;
       s.defer = defer;
       s.fetchPriority = priority;
+      s.referrerPolicy = "no-referrer-when-downgrade";
       s.onerror = () => console.warn("Gagal memuat:", src);
       document.body.appendChild(s);
     };
 
-
-    // 🔹 Popunder — hanya aktif setelah interaksi user
     const initPopunder = () => {
       if (window.popunderLoaded) return;
       window.popunderLoaded = true;
@@ -126,10 +140,11 @@
       document.removeEventListener("click", initPopunder);
       document.removeEventListener("scroll", initPopunder);
     };
-    document.addEventListener("click", initPopunder);
-    document.addEventListener("scroll", initPopunder);
 
-    // 🔹 Timeout cadangan jika user tidak berinteraksi
+    document.addEventListener("click", initPopunder, { once: true });
+    document.addEventListener("scroll", initPopunder, { once: true });
+
+    // 🔹 Timeout cadangan
     setTimeout(initPopunder, 4000);
   });
   </script>
