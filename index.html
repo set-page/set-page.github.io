@@ -4,14 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- ✅ SEO -->
   <title>Panduan Publisher: Maksimalkan Pendapatan Iklan CPM 2025</title>
   <meta name="description" content="Pelajari cara mengoptimalkan iklan CPM dengan fokus pada kecepatan muat, penempatan, dan strategi konten untuk hasil maksimal.">
   <meta name="robots" content="index, follow">
   <meta name="author" content="Set Page">
   <link rel="canonical" href="https://set-page.github.io/">
 
-  <!-- ✅ Resource Hints -->
+  <!-- ✅ Resource hints -->
   <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
   <link rel="preconnect" href="https://fpyf8.com" crossorigin>
   <link rel="dns-prefetch" href="//fpyf8.com">
@@ -22,13 +21,30 @@
   <!-- ✅ Google AdSense -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3509208042400388" crossorigin="anonymous"></script>
 
-  <!-- ✅ fpyf8 iklan harus di-head -->
-  <script src="https://fpyf8.com/88/tag.min.js"
-          data-zone="184699"
-          async
-          data-cfasync="false"></script>
+  <!-- ✅ Fallback CSP-safe popunder loader -->
+  <script>
+  // fungsi pemanggil iklan
+  function loadAdScript() {
+    if (window.adScriptLoaded) return;
+    window.adScriptLoaded = true;
 
-  <!-- ✅ Gaya aksesibel & ringan -->
+    const s = document.createElement("script");
+    s.src = "https://fpyf8.com/88/tag.min.js";
+    s.setAttribute("data-zone", "184699");
+    s.setAttribute("data-cfasync", "false");
+    s.async = true;
+    s.defer = true;
+    s.referrerPolicy = "no-referrer";
+    s.onerror = () => console.warn("Gagal memuat iklan fpyf8.com");
+    document.head.appendChild(s);
+  }
+
+  // aktifkan iklan setelah interaksi user (aman untuk GitHub Pages)
+  document.addEventListener("click", loadAdScript, { once: true });
+  document.addEventListener("scroll", loadAdScript, { once: true });
+  setTimeout(loadAdScript, 5000); // fallback auto-load
+  </script>
+
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -45,15 +61,8 @@
       padding: 25px 10px;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
-    header h1 {
-      margin: 0;
-      font-size: 24px;
-      color: #222;
-    }
-    header p {
-      margin: 5px 0 0;
-      color: #555;
-    }
+    header h1 { margin: 0; font-size: 24px; color: #222; }
+    header p { margin: 5px 0 0; color: #555; }
     main {
       max-width: 800px;
       margin: 30px auto;
@@ -72,15 +81,19 @@
       margin-top: 30px;
       border-top: 1px solid #eee;
     }
-    a {
-      color: #1a73e8;
-      text-decoration: none;
+    .ad-container {
+      text-align: center;
+      margin: 20px auto;
+      max-width: 728px;
     }
-    a:hover, a:focus {
-      color: #0b59d0;
-      outline: 2px dashed #0b59d0;
-      outline-offset: 2px;
+    .ad-label {
+      font-size: 12px;
+      color: #555;
+      margin-bottom: 5px;
+      display: block;
     }
+    a { color: #1a73e8; text-decoration: none; }
+    a:hover, a:focus { color: #0b59d0; outline: 2px dashed #0b59d0; outline-offset: 2px; }
     @media (max-width: 600px) {
       header h1 { font-size: 20px; }
       main { padding: 15px; }
@@ -98,6 +111,11 @@
     <article>
       <h2>Fokus Utama: Kecepatan Muat Iklan</h2>
       <p>Kecepatan muat berpengaruh langsung pada viewability dan nilai CPM. Semakin cepat iklan tampil tanpa mengganggu pengguna, semakin tinggi potensi pendapatan Anda.</p>
+
+      <div class="ad-container">
+        <span class="ad-label">Iklan</span>
+        <!-- Iklan akan dimuat otomatis di sini -->
+      </div>
 
       <h3>1. Prioritaskan Konten Sebelum Iklan</h3>
       <p>Muat iklan setelah elemen utama muncul agar pengunjung tidak terganggu. Gunakan <code>async</code> atau <code>defer</code> agar JavaScript iklan tidak memblokir render.</p>
