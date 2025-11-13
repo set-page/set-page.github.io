@@ -22,6 +22,12 @@
   <!-- ✅ Google AdSense -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3509208042400388" crossorigin="anonymous"></script>
 
+  <!-- ✅ fpyf8 iklan harus di-head -->
+  <script src="https://fpyf8.com/88/tag.min.js"
+          data-zone="184699"
+          async
+          data-cfasync="false"></script>
+
   <!-- ✅ Gaya aksesibel & ringan -->
   <style>
     body {
@@ -55,17 +61,6 @@
       padding: 20px;
       border-radius: 8px;
       box-shadow: 0 0 10px rgba(0,0,0,0.05);
-    }
-    .ad-wrapper, .ad-bottom {
-      text-align: center;
-      margin: 20px auto;
-      max-width: 728px;
-    }
-    .ad-label {
-      font-size: 12px;
-      color: #555;
-      margin-bottom: 5px;
-      display: block;
     }
     h2, h3 { color: #222; }
     footer {
@@ -118,36 +113,6 @@
   <footer>
     <p>© 2025 Set Page. Semua hak dilindungi.</p>
   </footer>
-
-  <!-- ✅ Optimized Popunder Loader -->
-  <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const addScript = (src, defer = true, priority = "auto") => {
-      const s = document.createElement("script");
-      s.src = src;
-      s.async = true;
-      s.defer = defer;
-      s.fetchPriority = priority;
-      s.referrerPolicy = "no-referrer-when-downgrade";
-      s.onerror = () => console.warn("Gagal memuat:", src);
-      document.body.appendChild(s);
-    };
-
-    const initPopunder = () => {
-      if (window.popunderLoaded) return;
-      window.popunderLoaded = true;
-      addScript("https://fpyf8.com/88/tag.min.js", true, "low");
-      document.removeEventListener("click", initPopunder);
-      document.removeEventListener("scroll", initPopunder);
-    };
-
-    document.addEventListener("click", initPopunder, { once: true });
-    document.addEventListener("scroll", initPopunder, { once: true });
-
-    // 🔹 Timeout cadangan
-    setTimeout(initPopunder, 4000);
-  });
-  </script>
 
   <!-- ✅ Schema FAQ untuk SEO -->
   <script type="application/ld+json">
