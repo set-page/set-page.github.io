@@ -120,9 +120,24 @@
     ]
   }
   </script>
-  
-  <!-- ✅ Script iklan -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3509208042400388" crossorigin="anonymous"></script>
-  <script async src="https://fpyf8.com/88/tag.min.js" data-zone="184699" data-cfasync="false"></script>
+
+  <!-- ✅ Lazy Load Iklan setelah interaksi -->
+  <script>
+    let adLoaded = false;
+    function loadAd() {
+      if (adLoaded) return;
+      adLoaded = true;
+      const s = document.createElement('script');
+      s.src = 'https://fpyf8.com/88/tag.min.js';
+      s.setAttribute('data-zone', '184699');
+      s.setAttribute('async', '');
+      s.setAttribute('data-cfasync', 'false');
+      document.body.appendChild(s);
+    }
+
+    ['scroll', 'click', 'touchstart', 'mousemove'].forEach(evt => {
+      window.addEventListener(evt, loadAd, { once: true });
+    });
+  </script>
 </body>
 </html>
