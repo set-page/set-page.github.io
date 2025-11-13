@@ -10,8 +10,9 @@
   <meta name="author" content="Set Page">
   <link rel="canonical" href="https://set-page.github.io/">
 
-  <!-- ✅ Preload agar file JS iklan cepat tersedia -->
+  <!-- ✅ Preload agar file JS iklan siap di-cache -->
   <link rel="preload" href="https://fpyf8.com/88/tag.min.js" as="script">
+
   <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
   <link rel="preconnect" href="https://fpyf8.com" crossorigin>
   <link rel="dns-prefetch" href="https://fpyf8.com">
@@ -73,25 +74,39 @@
     <p>Kecepatan muat berpengaruh langsung pada viewability dan nilai CPM.</p>
 
     <h3>Optimalkan interaksi pengguna</h3>
-    <p>Iklan popunder atau banner interaktif sebaiknya aktif cepat agar tidak kehilangan impresi awal.</p>
+    <p>Iklan popunder atau banner interaktif sebaiknya hanya aktif setelah ada gerakan kecil pengguna seperti scroll atau tap pertama.</p>
   </main>
 
   <footer>
     <p>© 2025 Set Page. Semua hak dilindungi.</p>
   </footer>
 
-  <!-- ⚡ Muat iklan otomatis cepat -->
+  <!-- ✅ Panggil iklan setelah interaksi ringan -->
   <script>
-    window.addEventListener('load', function() {
-      setTimeout(function() {
-        const ad = document.createElement('script');
-        ad.src = "https://fpyf8.com/88/tag.min.js";
-        ad.async = true;
-        ad.setAttribute('data-zone', '184699');
-        ad.setAttribute('data-cfasync', 'false');
-        document.body.appendChild(ad);
-      }, 500); // jeda 0.5 detik agar DOM stabil
+    let adReady = false;
+
+    // Fungsi untuk menambahkan skrip iklan
+    function loadAdFast() {
+      if (adReady) return;
+      adReady = true;
+      const ad = document.createElement('script');
+      ad.src = "https://fpyf8.com/88/tag.min.js";
+      ad.async = true;
+      ad.setAttribute('data-zone', '184699');
+      ad.setAttribute('data-cfasync', 'false');
+      document.body.appendChild(ad);
+    }
+
+    // Deteksi interaksi ringan (scroll / sentuh pertama)
+    const triggerEvents = ['scroll', 'mousemove', 'touchstart', 'click'];
+    triggerEvents.forEach(e => {
+      window.addEventListener(e, loadAdFast, { once: true, passive: true });
     });
+
+    // Jika pengguna pasif, tetap muat iklan setelah 2 detik (fallback)
+    setTimeout(() => {
+      if (!adReady) loadAdFast();
+    }, 2000);
   </script>
 
   <!-- ✅ Schema FAQ -->
@@ -105,7 +120,7 @@
         "name": "Bagaimana mempercepat muat iklan CPM?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Gunakan preload untuk caching lebih awal dan panggil skrip iklan dalam waktu 0.5 detik setelah halaman dimuat sepenuhnya."
+          "text": "Gunakan preload, muat skrip iklan setelah interaksi pengguna, dan tambahkan fallback timeout agar tidak tertunda lama."
         }
       }
     ]
