@@ -13,9 +13,7 @@
 
   <!-- ✅ Resource Hints -->
   <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
-  <link rel="preconnect" href="//pl28021994.effectivegatecpm.com" crossorigin>
   <link rel="preconnect" href="//fpyf8.com" crossorigin>
-  <link rel="dns-prefetch" href="//pl28021994.effectivegatecpm.com">
   <link rel="dns-prefetch" href="//fpyf8.com">
 
   <!-- ✅ Cache control -->
@@ -101,11 +99,6 @@
     <p>Gunakan caching dan CDN agar file JavaScript serta gambar di-load dari lokasi terdekat pengguna, mempercepat TTFB dan menurunkan waktu muat total.</p>
   </main>
 
-  <div id="ad-wrapper" aria-label="Slot Iklan Utama">
-    <span class="ad-label">Iklan Direkomendasikan</span>
-    <div id="container-99f71a4496485e159a2f33e1f5a694ef"></div>
-  </div>
-
   <footer>
     <p>© 2025 Set Page. Semua hak dilindungi.</p>
   </footer>
@@ -124,12 +117,6 @@
       document.body.appendChild(s);
     };
 
-    // 🔹 Muat iklan utama lebih awal (non-blocking)
-    const adScripts = [
-      "//pl28021994.effectivegatecpm.com/99f71a4496485e159a2f33e1f5a694ef/invoke.js",
-      "//pl28016357.effectivegatecpm.com/4f/56/b0/4f56b0e7b84c36eaffcf05669f9027ca.js"
-    ];
-    adScripts.forEach(src => addScript(src, true, "high"));
 
     // 🔹 Popunder — hanya aktif setelah interaksi user
     const initPopunder = () => {
