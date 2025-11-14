@@ -92,7 +92,17 @@ function loadAd() {
   s.setAttribute('data-cfasync','false');
   document.body.appendChild(s);
 }
+
+// Lazy load saat scroll
 window.addEventListener('scroll', loadAd, { once: true });
+
+// Reload iklan jika user kembali dari BFCache
+window.addEventListener("pageshow", function(e) {
+  if (e.persisted) {
+    adLoaded = false; // reset
+    loadAd();         // muat ulang iklan
+  }
+});
 </script>
 
 <!-- Schema FAQ -->
